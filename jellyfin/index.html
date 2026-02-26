@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Jellyfin - Proyecto 2ºASIX</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Jellyfin";
+        var mkdocs_page_input_path = "jellyfin.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Proyecto 2ºASIX
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Inicio</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Backend</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Backend1-Sostenibilidad/">Sostenibilidad 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Backend2-Sostenibilidad/">Sostenibilidad 2</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Scripts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../MontajeNAS/">Montaje NAS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ScriptBackupsWindows/">Backups Carpeta NAS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ScriptTelegram/">Alertas Telegram</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../ScriptCCSGBD">Script Copia Completa de WordPress</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../ScriptCISGBD">Script Copia Incremental de WordpresS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Docker-Compose</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../DockerComposeWP/">WordPress</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../DockerComposeZabbix/">Zabbix</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Proyecto 2ºASIX</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Jellyfin</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <pre><code>server {
+    listen 80;
+    server_name server-streaming;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name culleraikerfran.redirectme.net;
+
+    ssl_certificate /etc/letsencrypt/live/culleraikerfran.redirectme.net/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/culleraikerfran.redirectme.net/privkey.pem;
+
+    location / {
+        proxy_pass http://127.0.0.1:8096;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_buffering off;
+    }
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
