@@ -1,17 +1,15 @@
-# Welcome to MkDocs
+# Proyecto Intermodular 2º ASIX
+**Autores:** Iker y Fran
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+---
 
-## Commands
+## 📂 Guía de Contenidos
+Bienvenido a la documentación técnica del proyecto. Selecciona una sección para ver los detalles:
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+| Sección | Descripción | Enlace |
+| :--- | :--- | :--- |
+| 🖥️ **Backend 1** | Análisis de sostenibilidad y eficiencia. | [Ver Documento](Backend1-Sostenibilidad.md) |
+| 🖥️ **Backend 2** | Segunda parte del análisis técnico. | [Ver Documento](Backend2-Sostenibilidad.md) |
+| 🛠️ **Montaje NAS** | Script automatizado para montaje de unidades. | [Ver Script](MontajeNAS.md) |
+| 💾 **Backups NAS** | Gestión de copias de seguridad en Windows. | [Ver Script](ScriptBackupsWindows.md) |
+| 🤖 **Alertas Telegram** | Sistema de notificaciones en tiempo real. | [Ver Script](ScriptTelegram.md) |

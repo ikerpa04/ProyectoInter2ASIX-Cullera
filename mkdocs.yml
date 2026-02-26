@@ -1,1 +1,18 @@
-site_name: My Docs
+site_name: Proyecto 2ºASIX
+theme:
+  name: readthedocs
+
+nav:
+  - Inicio: index.md
+  - Backend:
+      - Sostenibilidad 1: Backend1-Sostenibilidad.md
+      - Sostenibilidad 2: Backend2-Sostenibilidad.md
+  - Scripts:
+      - Montaje NAS: MontajeNAS.md
+      - Backups Carpeta NAS: ScriptBackupsWindows.md
+      - Alertas Telegram: ScriptTelegram.md
+      - Script Copia Completa de WordPress: ScriptCCSBGD
+      - Script Copia Incremental de WordpresS: ScriptCISGBD
+  - Docker-Compose:
+      - WordPress: DockerComposeWP.md
+      - Zabbix: DockerComposeZabbix.md
